@@ -70,7 +70,7 @@ class Poptin extends Plugin
      *
      * @var bool
      */
-    public $hasCpSection = false;
+    public $hasCpSection = true;
 
     // Public Methods
     // =========================================================================
@@ -146,6 +146,19 @@ class Poptin extends Plugin
             ),
             __METHOD__
         );
+    }
+
+    public function getCpNavItem()
+    {
+        $item = parent::getCpNavItem();
+        // $item['badgeCount'] = 5;
+        $item['icon'] = '@poptin/poptin/icon.svg';
+        // $item['subnav'] = [
+        //     'foo' => ['label' => 'Foo', 'url' => 'plugin-handle/foo'],
+        //     'bar' => ['label' => 'Bar', 'url' => 'plugin-handle/bar'],
+        //     'baz' => ['label' => 'Baz', 'url' => 'plugin-handle/baz'],
+        // ];
+        return $item;
     }
 
     // Protected Methods
