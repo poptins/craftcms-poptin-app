@@ -14,64 +14,73 @@ jQuery(document).ready(function ($) {
 
     jQuery(".pp_signup_btn").on('click', function (e) {
         e.preventDefault();
+        console.log("Sign Up Was Clicked!");
+
         var email = $("#email").val();
-        if (!isEmail(email)) {
-            e.preventDefault();
+        console.log(email);
+
+        if(!isEmail(email)){
             $("#oopsiewrongemailid").modal('show');
             return false;
-        } else {
-            show_loader();
-            jQuery.ajax({
-                url: ajaxurl,
-                dataType: "JSON",
-                method: "POST",
-                data: jQuery("#registration_form").serialize(),
-                success: function (data) {
-                    hide_loader();
-                    if (data.success == true) {
-                        jQuery(".ppaccountmanager").fadeOut(300);
-                        jQuery(".poptinLogged").fadeIn(300);
-                        jQuery(".poptinLoggedBg").fadeIn(300);
-                        $(".goto_dashboard_button_pp_updatable").attr('href',"admin.php?page=Poptin&poptin_logmein=true&after_registration=wordpress");
-                        // window.open("admin.php?page=Poptin&poptin_logmein=true&after_registration=wordpress","_blank");
+        }
+
+        show_loader();
+        jQuery.ajax({
+            url: window.poptin.config.dashboard_url + '/api/marketplace/register',
+            dataType: "JSON",
+            method: "POST",
+            data: jQuery("#registration_form").serialize(),
+            success: function (data) {
+                console.log(data);
+                hide_loader();
+                if (data.success == true) {
+                    $("[name='user_id']").val(data.user_id);
+                    $("[name='client_id']").val(data.client_id);
+                    $("[name='token']").val(data.token);
+                    $("[name='login_url']").val(data.login_url);
+
+                    window.poptin.methods.updateCraftConfig();
+
+                    jQuery(".ppaccountmanager").fadeOut(300);
+                    jQuery(".poptinLogged").fadeIn(300);
+                    jQuery(".poptinLoggedBg").fadeIn(300);
+                    $(".goto_dashboard_button_pp_updatable").attr('href', data.login_url);
+                } else {
+                    if(data.message === "Registration failed. User already registered.") {
+                        jQuery("#lookfamiliar").modal();
+                    } else if(data.message = "The email has already been taken.") {
+                        jQuery("#lookfamiliar").modal();
                     } else {
-                        if(data.message === "Registration failed. User already registered.") {
-                            jQuery("#lookfamiliar").modal();
-                        } else if(data.message = "The email has already been taken.") {
-                            jQuery("#lookfamiliar").modal();
-                        } else {
-                            swal("Error", data.message, "error");
-                        }
+                        swal("Error", data.message, "error");
                     }
                 }
-            });
-        }
+            }
+        });
     });
 
     jQuery('.goto_dashboard_button_pp_updatable').click(function(){
         link = $(this);
         href = link.attr('href');
         setTimeout(function(){
-            link.attr('href',href.replace('&after_registration=wordpress',''));
+            link.attr('href',href.replace('&after_registration=craftcms',''));
         },1000);
     });
 
     jQuery(document).on('click','.deactivate-poptin-confirm-yes',function(){
-        jQuery.post(ajaxurl,{
-            action: 'delete-id'
-            }, function (status) {
-                status = JSON.parse(status);
-                if (status.success == true) {
-                    jQuery('#makingsure').modal('hide');
-                    jQuery('#byebyeModal').modal('show');
-                    $(".poptinLogged").hide();
-                    $(".poptinLoggedBg").hide();
-                    $(".ppaccountmanager").fadeIn('slow');
-                    $(".popotinLogin").show();
-                    $(".popotinRegister").hide();
-                }
-            }
-        );
+        $("[name='user_id']").val('');
+        $("[name='client_id']").val('');
+        $("[name='token']").val('');
+        $("[name='login_url']").val('');
+
+        window.poptin.methods.updateCraftConfig();
+
+        jQuery('#makingsure').modal('hide');
+        jQuery('#byebyeModal').modal('show');
+        $(".poptinLogged").hide();
+        $(".poptinLoggedBg").hide();
+        $(".ppaccountmanager").fadeIn('slow');
+        $(".popotinLogin").show();
+        $(".popotinRegister").hide();
     });
 
     jQuery(".pplogout").click(function (e) {
@@ -94,27 +103,26 @@ jQuery(document).ready(function ($) {
     $('.ppFormLogin').on('submit', function (e) {
         e.preventDefault();
         var id = $('.ppFormLogin input[type="text"]').val();
+        console.log(id);
         if (id.length != 13) {
             e.preventDefault();
             $("#oopsiewrongid").modal('show');
             return false;
-        } else {
-            $.post(ajaxurl, {
-                    data: {'poptin_id': id},
-                    action: 'add-id',
-                }, function (status) {
-                    status = JSON.parse(status);
-                    if (status.success == true) {
-                        jQuery(".poptinLogged").fadeIn('slow');
-                        jQuery(".poptinLoggedBg").fadeIn('slow');
-                        jQuery(".ppaccountmanager").hide();
-                        jQuery(".popotinLogin").hide();
-                        jQuery(".popotinRegister").hide();
-                        $(".goto_dashboard_button_pp_updatable").attr('href',"https://app.popt.in/login");
-                    }
-                }
-            );
         }
+
+        $("[name='user_id']").val(id);
+        $("[name='client_id']").val('');
+        $("[name='token']").val('');
+        $("[name='login_url']").val('');
+
+        window.poptin.methods.updateCraftConfig();
+
+        jQuery(".poptinLogged").fadeIn('slow');
+        jQuery(".poptinLoggedBg").fadeIn('slow');
+        jQuery(".ppaccountmanager").hide();
+        jQuery(".popotinLogin").hide();
+        jQuery(".popotinRegister").hide();
+        $(".goto_dashboard_button_pp_updatable").attr('href', window.poptin.config.dashboard_url);
     });
 
 
