@@ -22,7 +22,6 @@ class PoptinPublicBundle extends AssetBundle
         // when this asset bundle is registered
         $this->js = [
             "https://dev.popt.in/pixel.js?id={$user_id}",
-            "js/test.js",
         ];
 
         $this->jsOptions = [
