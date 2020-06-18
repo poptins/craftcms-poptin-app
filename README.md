@@ -1,8 +1,8 @@
-# poptin plugin for Craft CMS 3.x
+# Poptin plugin for Craft CMS 3.x
 
 Create advanced website popups and forms, and improve your website's conversion rate within a few minutes.
 
-![Screenshot](resources/img/plugin-logo.png)
+![Screenshot](src/resources/img/plugin-logo.png)
 
 ## Requirements
 
@@ -18,26 +18,10 @@ To install the plugin, follow these instructions.
 
 2. Then tell Composer to load the plugin:
 
-        composer require /poptin
+        composer require poptin/poptin
 
 3. In the Control Panel, go to Settings → Plugins and click the “Install” button for poptin.
 
-## poptin Overview
+## Poptin Overview
 
--Insert text here-
-
-## Configuring poptin
-
--Insert text here-
-
-## Using poptin
-
--Insert text here-
-
-## poptin Roadmap
-
-Some things to do, and ideas for potential features:
-
-* Release it
-
-Brought to you by [Poptin](poptin.com)
+Create beautiful popups and inline form for your website with a drag and drop editor. Including exit intent trigger, smart targeting options, integrations and more.
