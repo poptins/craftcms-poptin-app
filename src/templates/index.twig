@@ -6,16 +6,11 @@
 
 {# Setting main properties on page load #}
 {% set admin_email = craft.app.projectConfig.get.email.fromEmail %}
-{% set user_id = craft.app.projectConfig.get.plugins.poptin.user_id %}
+{% set client_id = craft.app.projectConfig.get.plugins.poptin.client_id %}
 {% set token = craft.app.projectConfig.get.plugins.poptin.token %}
 {% set login_url = craft.app.projectConfig.get.plugins.poptin.login_url %}
 
-{# This depends on carft env variable ENVIRONMENT #}
-{% if craft.app.config.general.devMode %}
-    {% set dashboard_url="https://dev.popt.in" %}
-{% else %}
-    {% set dashboard_url="https://app.popt.in" %}
-{% endif %}
+{% set dashboard_url="https://app.popt.in" %}
 
 {% block content %}
     <!-- Main wrapper -->
@@ -26,7 +21,7 @@
             <!-- Logo -->
             <div class="poptinLogo"><img src="{{ craft.app.assetManager.publishedUrl('@poptin/poptin/resources/img/poptinlogo.png', true) }}"/></div>
 
-            <div class="poptinLogged"  {% if user_id %} style="display:block" {% else %} style="display:none" {% endif %}>
+            <div class="poptinLogged"  {% if client_id %} style="display:block" {% else %} style="display:none" {% endif %}>
                 <!-- Here will render after login/create account view -->
                 <div class="poptinLoggedBg"
                     style="background:url({{ craft.app.assetManager.publishedUrl('@poptin/poptin/resources/img/loggedinbg.png', true)}}) no-repeat">
@@ -40,7 +35,7 @@
                     <div class="tinyborder"></div>
                     <span class="everythinglooks"><strong>Poptin is installed on your website</strong><br>Click on the button below to<br>create and manage your poptins</span>
                     <img src="{{ craft.app.assetManager.publishedUrl('@poptin/poptin/resources/img/vicon.png', true) }}"/>
-                    <a href="{{ dashboard_url }}" target="_blank"
+                    <a href="{{ login_url }}" target="_blank"
                     class="ppcontrolpanel goto_dashboard_button_pp_updatable">{{ "Go to dashboard"|t('ppbase') }}</a>
                     <a href="#logout" class="pplogout">{{ "Deactivate Poptin" | t('ppbase') }}</a>
                 </div>
@@ -49,7 +44,7 @@
             </div>
 
 
-            <div class="ppaccountmanager" {% if not user_id %} style="display:block" {% else %} style="display:none" {% endif %}>
+            <div class="ppaccountmanager" {% if not client_id %} style="display:block" {% else %} style="display:none" {% endif %}>
                 <div class="popotinRegister">
                     <!-- Here will render register view -->
                     <div class="accountWrapper"
@@ -350,7 +345,6 @@
 
     <form id="poptinConfigForm" action="/poptin/config">
         {{ csrfInput() }}
-        <input type="hidden" name="user_id" value="">
         <input type="hidden" name="client_id" value="">
         <input type="hidden" name="token" value="">
         <input type="hidden" name="login_url" value="">
@@ -363,7 +357,7 @@
         window.poptin = {
             config: {
                 admin_email: "{{ admin_email }}",
-                user_id: "{{ user_id }}",
+                client_id: "{{ client_id }}",
                 token: "{{ token }}",
                 dashboard_url: "{{ dashboard_url }}",
                 login_url: "{{ login_url }}"

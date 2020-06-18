@@ -16,13 +16,17 @@ class PoptinPublicBundle extends AssetBundle
             CpAsset::class,
         ];
 
-        $user_id = \Craft::$app->projectConfig->get('plugins.poptin.user_id');
+        $client_id = \Craft::$app->projectConfig->get('plugins.poptin.client_id');
 
-        // define the relative path to CSS/JS files that should be registered with the page
-        // when this asset bundle is registered
-        $this->js = [
-            "https://dev.popt.in/pixel.js?id={$user_id}",
-        ];
+        if($client_id) {
+            $this->js = [
+                "https://app.popt.in/pixel.js?id={$client_id}",
+            ];
+        }else {
+            $this->js = [
+                //
+            ];
+        }
 
         $this->jsOptions = [
             'id' => 'pixel-script-poptin',

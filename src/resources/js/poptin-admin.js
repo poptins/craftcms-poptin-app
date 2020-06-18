@@ -34,7 +34,6 @@ jQuery(document).ready(function ($) {
                 console.log(data);
                 hide_loader();
                 if (data.success == true) {
-                    $("[name='user_id']").val(data.user_id);
                     $("[name='client_id']").val(data.client_id);
                     $("[name='token']").val(data.token);
                     $("[name='login_url']").val(data.login_url);
@@ -67,7 +66,6 @@ jQuery(document).ready(function ($) {
     });
 
     jQuery(document).on('click','.deactivate-poptin-confirm-yes',function(){
-        $("[name='user_id']").val('');
         $("[name='client_id']").val('');
         $("[name='token']").val('');
         $("[name='login_url']").val('');
@@ -110,8 +108,7 @@ jQuery(document).ready(function ($) {
             return false;
         }
 
-        $("[name='user_id']").val(id);
-        $("[name='client_id']").val('');
+        $("[name='client_id']").val(id);
         $("[name='token']").val('');
         $("[name='login_url']").val('');
 
