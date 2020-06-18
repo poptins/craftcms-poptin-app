@@ -13,7 +13,7 @@ a:focus {
 /* END Reset */
 .poptinWrap {
     font-family: 'Open Sans', sans-serif;
-    width: 1078px;
+    width: 920px;
     margin: 51px auto 20px;
     direction: ltr;
     border: 1px solid #e4e4e4;
@@ -274,7 +274,7 @@ div#whereIsMyId {
 
 .box {
     border-radius: 7px;
-    width: 220px;
+    width: 180px;
     height: 280px;
     display: inline-block;
     vertical-align: top;
@@ -358,8 +358,8 @@ div#whereIsMyId {
     border-radius: 7px;
     background-color: #ffffff;
     border: 1px solid #ebebeb;
-    width: 315px;
-    height: 462px;
+    width: 280px;
+    height: 500px;
     display: inline-block;
     vertical-align: top;
     -webkit-transition: all 200ms ease;

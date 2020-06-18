@@ -4,20 +4,6 @@
 {% requireLogin %}
 {% do view.registerAssetBundle("poptin\\poptin\\PoptinBundle") %}
 
-{# Not sure why these two are needed #}
-{% set poptin_marketplace_token_check = false %}
-{% set poptin_marketplace_email_id_check = false %}
-
-{# And this code block as well #}
-{% js %}
-    {% if poptin_marketplace_token_check and poptin_marketplace_email_id_check %}
-        var do_auto_login = false;
-    {% else %}
-        var do_auto_login = false;
-    {% endif %}
-
-{% endjs %}
-
 {# Setting main properties on page load #}
 {% set admin_email = craft.app.projectConfig.get.email.fromEmail %}
 {% set user_id = craft.app.projectConfig.get.plugins.poptin.user_id %}
@@ -26,11 +12,10 @@
 
 {# This depends on carft env variable ENVIRONMENT #}
 {% if craft.app.config.general.devMode %}
-    {% set dashboard_url="http://poptin_v3.test" %}
+    {% set dashboard_url="https://dev.popt.in" %}
 {% else %}
     {% set dashboard_url="https://app.popt.in" %}
 {% endif %}
-
 
 {% block content %}
     <!-- Main wrapper -->
