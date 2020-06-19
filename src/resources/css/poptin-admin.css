@@ -864,5 +864,6 @@ body *.admin-poptin-box {
     padding-left: 0px;
     padding-top: 0px !important;
     margin-top: 110px !important;
-    height: 550px;
+    width: 100%;
+    height: calc(100vh - 110px);
 }
