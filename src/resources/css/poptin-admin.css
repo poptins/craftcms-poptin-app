@@ -843,3 +843,26 @@ body *.admin-poptin-box {
     display:block !important;
     margin: 5px 0 15px 20px !important;
 }
+
+.modal{
+    margin: 0 auto;
+    background: transparent;
+    box-shadow: none;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding-left: 0px;
+    padding-top: 0px !important;
+    margin-top: 110px !important;
+}
+
+#whereIsMyId{
+    margin: 0 auto;
+    background: transparent;
+    box-shadow: none;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding-left: 0px;
+    padding-top: 0px !important;
+    margin-top: 110px !important;
+    height: 550px;
+}
