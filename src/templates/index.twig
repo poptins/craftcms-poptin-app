@@ -64,6 +64,7 @@
                                 <input type="hidden" name="register" class="poptin_input" value="true"/>
                                 <input type="hidden" name="security" class="poptin_input"
                                     value="{{ craft.app.tokens.createToken('poptin-fe-login') }}"/>
+                                    <input type="hidden" name="marketplace" class="poptin_input" value="crft"/>
                                 <input type="hidden" name="{{ craft.app.config.general.csrfTokenName }}" class="poptin_input"
                                     value="{{ craft.app.request.csrfToken }}"/>
                                 <div class="bottomForm">
