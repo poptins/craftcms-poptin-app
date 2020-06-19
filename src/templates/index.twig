@@ -7,10 +7,9 @@
 {# Setting main properties on page load #}
 {% set admin_email = craft.app.projectConfig.get.email.fromEmail %}
 {% set client_id = craft.app.projectConfig.get.plugins.poptin.client_id %}
+{% set user_id = craft.app.projectConfig.get.plugins.poptin.user_id %}
 {% set token = craft.app.projectConfig.get.plugins.poptin.token %}
-{% set login_url = craft.app.projectConfig.get.plugins.poptin.login_url %}
-
-{% set dashboard_url="https://app.popt.in" %}
+{% set poptin_url = craft.app.projectConfig.get.plugins.poptin.poptin_url %}
 
 {% block content %}
     <!-- Main wrapper -->
@@ -35,8 +34,7 @@
                     <div class="tinyborder"></div>
                     <span class="everythinglooks"><strong>Poptin is installed on your website</strong><br>Click on the button below to<br>create and manage your poptins</span>
                     <img src="{{ craft.app.assetManager.publishedUrl('@poptin/poptin/resources/img/vicon.png', true) }}"/>
-                    <a href="{{ login_url }}" target="_blank"
-                    class="ppcontrolpanel goto_dashboard_button_pp_updatable">{{ "Go to dashboard"|t('ppbase') }}</a>
+                    <a href="/poptin/redirect" target="_blank" id="goToDashboard" class="ppcontrolpanel goto_dashboard_button_pp_updatable">{{ "Go to dashboard"|t('ppbase') }}</a>
                     <a href="#logout" class="pplogout">{{ "Deactivate Poptin" | t('ppbase') }}</a>
                 </div>
 
@@ -66,7 +64,7 @@
                                 <input type="hidden" name="register" class="poptin_input" value="true"/>
                                 <input type="hidden" name="security" class="poptin_input"
                                     value="{{ craft.app.tokens.createToken('poptin-fe-login') }}"/>
-                                    <input type="hidden" name="{{ craft.app.config.general.csrfTokenName }}" class="poptin_input"
+                                <input type="hidden" name="{{ craft.app.config.general.csrfTokenName }}" class="poptin_input"
                                     value="{{ craft.app.request.csrfToken }}"/>
                                 <div class="bottomForm">
                                     <input class="ppSubmit pp_signup_btn poptin_signup_button" type="submit"
@@ -220,7 +218,7 @@
                 {% endjs %}
                 <img class="parrot" src="{{ craft.app.assetManager.publishedUrl('@poptin/poptin/resources/img/parrot.png', true) }}"/>
                 <span class="poptinlove">{{ "Visit us at " | t('ppbase') }} <a
-                            href="https://www.poptin.com/?utm_source=wordpress"
+                            href="https://www.poptin.com/?utm_source=craftcms"
                             target="_blank">poptin.com</a></span>
             </div>
         </div>
@@ -307,7 +305,7 @@
             </div>
             <div class="clearfix"></div>
             <div class="poptin-lightbox-button-wrapper text-align-center">
-                <a class="poptin-lightbox-button login-from-lb" target="_blank" href="{{ dashboard_url }}">Login</a>
+                <a class="poptin-lightbox-button login-from-lb" target="_blank" href="{{ poptin_url }}">Login</a>
                 <div class="poptin-lightbox-atag" data-dismiss="modal">Cancel</div>
             </div>
         </div>
@@ -345,9 +343,9 @@
 
     <form id="poptinConfigForm" action="/poptin/config">
         {{ csrfInput() }}
-        <input type="hidden" name="client_id" value="">
-        <input type="hidden" name="token" value="">
-        <input type="hidden" name="login_url" value="">
+        <input type="hidden" name="client_id" value="{{ client_id }}">
+        <input type="hidden" name="user_id" value="{{ user_id }}">
+        <input type="hidden" name="token" value="{{ token }}">
     </form>
 
     <script type="text/javascript">
@@ -358,9 +356,9 @@
             config: {
                 admin_email: "{{ admin_email }}",
                 client_id: "{{ client_id }}",
+                user_id: "{{ user_id }}",
                 token: "{{ token }}",
-                dashboard_url: "{{ dashboard_url }}",
-                login_url: "{{ login_url }}"
+                poptin_url: "{{ poptin_url }}"
             },
             methods: {
                 updateCraftConfig: () => {

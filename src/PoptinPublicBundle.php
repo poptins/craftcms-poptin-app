@@ -20,7 +20,7 @@ class PoptinPublicBundle extends AssetBundle
 
         if($client_id) {
             $this->js = [
-                "https://app.popt.in/pixel.js?id={$client_id}",
+                "http://poptin_v3.test/pixel.js?id={$client_id}",
             ];
         }else {
             $this->js = [

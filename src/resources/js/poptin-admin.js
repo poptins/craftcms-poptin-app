@@ -26,24 +26,32 @@ jQuery(document).ready(function ($) {
 
         show_loader();
         jQuery.ajax({
-            url: window.poptin.config.dashboard_url + '/api/marketplace/register',
+            url: window.poptin.config.poptin_url + '/api/marketplace/register',
             dataType: "JSON",
             method: "POST",
             data: jQuery("#registration_form").serialize(),
             success: function (data) {
                 console.log(data);
-                hide_loader();
                 if (data.success == true) {
                     $("[name='client_id']").val(data.client_id);
+                    $("[name='user_id']").val(data.user_id);
                     $("[name='token']").val(data.token);
                     $("[name='login_url']").val(data.login_url);
 
-                    window.poptin.methods.updateCraftConfig();
+                    // Updating config in database
+                    jQuery.ajax({
+                        url: '/poptin/config',
+                        dataType: "JSON",
+                        method: "POST",
+                        data: jQuery("#poptinConfigForm").serialize(),
+                        success: function (data) {
+                            hide_loader();
+                        }
+                    });
 
                     jQuery(".ppaccountmanager").fadeOut(300);
                     jQuery(".poptinLogged").fadeIn(300);
                     jQuery(".poptinLoggedBg").fadeIn(300);
-                    $(".goto_dashboard_button_pp_updatable").attr('href', data.login_url);
                 } else {
                     if(data.message === "Registration failed. User already registered.") {
                         jQuery("#lookfamiliar").modal();
@@ -52,6 +60,8 @@ jQuery(document).ready(function ($) {
                     } else {
                         swal("Error", data.message, "error");
                     }
+
+                    hide_loader();
                 }
             }
         });
@@ -67,6 +77,7 @@ jQuery(document).ready(function ($) {
 
     jQuery(document).on('click','.deactivate-poptin-confirm-yes',function(){
         $("[name='client_id']").val('');
+        $("[name='user_id']").val('');
         $("[name='token']").val('');
         $("[name='login_url']").val('');
 
@@ -109,6 +120,7 @@ jQuery(document).ready(function ($) {
         }
 
         $("[name='client_id']").val(id);
+        $("[name='user_id']").val();
         $("[name='token']").val('');
         $("[name='login_url']").val('');
 
@@ -119,7 +131,7 @@ jQuery(document).ready(function ($) {
         jQuery(".ppaccountmanager").hide();
         jQuery(".popotinLogin").hide();
         jQuery(".popotinRegister").hide();
-        $(".goto_dashboard_button_pp_updatable").attr('href', window.poptin.config.dashboard_url);
+        $(".goto_dashboard_button_pp_updatable").attr('href', window.poptin.config.poptin_url);
     });
 
 

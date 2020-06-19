@@ -31,6 +31,7 @@ class Poptin extends Plugin
             UrlManager::EVENT_REGISTER_SITE_URL_RULES,
             function (RegisterUrlRulesEvent $event) {
                 $event->rules['POST poptin/config'] = 'poptin/default/config';
+                $event->rules['poptin/redirect'] = 'poptin/default/redirect';
             }
         );
 
@@ -67,6 +68,7 @@ class Poptin extends Plugin
 
         $projectConfig = Craft::$app->projectConfig;
         $projectConfig->get('plugins.poptin.client_id') ?? $projectConfig->set('plugins.poptin.client_id', "");
+        $projectConfig->get('plugins.poptin.user_id') ?? $projectConfig->set('plugins.poptin.user_id', "");
         $projectConfig->get('plugins.poptin.token') ?? $projectConfig->set('plugins.poptin.token', "");
         $projectConfig->get('plugins.poptin.login_url') ?? $projectConfig->set('plugins.poptin.login_url', "");
         $projectConfig->get('plugins.poptin.poptin_url') ?? $projectConfig->set('plugins.poptin.poptin_url', "https://app.popt.in");
