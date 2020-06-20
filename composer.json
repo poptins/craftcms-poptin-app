@@ -37,8 +37,8 @@
         "handle": "poptin",
         "developer": "Poptin",
         "developerUrl": "poptin.com",
-        "documentationUrl": "???",
-        "changelogUrl": "???",
+        "documentationUrl": "https://github.com/poptins/craftcms-poptin-app/blob/master/README.md",
+        "changelogUrl": "https://github.com/poptins/craftcms-poptin-app/blob/master/CHANGELOG.md",
         "class": "poptin\\poptin\\Poptin"
     }
 }
