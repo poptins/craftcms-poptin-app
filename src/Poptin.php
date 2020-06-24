@@ -41,7 +41,12 @@ class Poptin extends Plugin
             Plugins::EVENT_AFTER_INSTALL_PLUGIN,
             function (PluginEvent $event) {
                 if ($event->plugin === $this) {
-                    // We were just installed
+                    $projectConfig = Craft::$app->projectConfig;
+                    $projectConfig->get('plugins.poptin.client_id') ?? $projectConfig->set('plugins.poptin.client_id', "");
+                    $projectConfig->get('plugins.poptin.user_id') ?? $projectConfig->set('plugins.poptin.user_id', "");
+                    $projectConfig->get('plugins.poptin.token') ?? $projectConfig->set('plugins.poptin.token', "");
+                    $projectConfig->get('plugins.poptin.login_url') ?? $projectConfig->set('plugins.poptin.login_url', "");
+                    $projectConfig->get('plugins.poptin.poptin_url') ?? $projectConfig->set('plugins.poptin.poptin_url', "https://app.popt.in");
                 }
             }
         );
@@ -65,13 +70,6 @@ class Poptin extends Plugin
         ) {
             Craft::$app->getView()->registerAssetBundle('poptin\poptin\PoptinPublicBundle');
         }
-
-        $projectConfig = Craft::$app->projectConfig;
-        $projectConfig->get('plugins.poptin.client_id') ?? $projectConfig->set('plugins.poptin.client_id', "");
-        $projectConfig->get('plugins.poptin.user_id') ?? $projectConfig->set('plugins.poptin.user_id', "");
-        $projectConfig->get('plugins.poptin.token') ?? $projectConfig->set('plugins.poptin.token', "");
-        $projectConfig->get('plugins.poptin.login_url') ?? $projectConfig->set('plugins.poptin.login_url', "");
-        $projectConfig->get('plugins.poptin.poptin_url') ?? $projectConfig->set('plugins.poptin.poptin_url', "https://app.popt.in");
     }
     public function getCpNavItem()
     {
