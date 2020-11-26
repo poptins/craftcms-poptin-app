@@ -2,7 +2,6 @@
 namespace poptin\poptin;
 
 use craft\web\AssetBundle;
-use craft\web\assets\cp\CpAsset;
 
 class PoptinPublicBundle extends AssetBundle
 {
@@ -10,11 +9,6 @@ class PoptinPublicBundle extends AssetBundle
     {
         // define the path where your publishable resources live
         $this->sourcePath = '@poptin/poptin/resources';
-
-        // define the dependencies
-        $this->depends = [
-            CpAsset::class,
-        ];
 
         $client_id = \Craft::$app->projectConfig->get('plugins.poptin.client_id');
         $poptin_url = \Craft::$app->projectConfig->get('plugins.poptin.poptin_url');
@@ -32,10 +26,6 @@ class PoptinPublicBundle extends AssetBundle
         $this->jsOptions = [
             'id' => 'pixel-script-poptin',
             'async' => 'true'
-        ];
-
-        $this->css = [
-            //
         ];
 
         parent::init();

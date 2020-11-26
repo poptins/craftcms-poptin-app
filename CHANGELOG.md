@@ -7,3 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## 1.0.0 - 2020-06-05
 ### Added
 - Initial release
+
+## 1.2.0 - 2020-06-05
+### Fixed CSS
+- Fixed CSS issue by removing CpAsset from Public Bundle
