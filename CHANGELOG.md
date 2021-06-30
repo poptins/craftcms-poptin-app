@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.5.0 - 2021-06-30
+### Correcting CHANGELOG.md
+- Updating composer dependancies to fix -> https://github.com/advisories/GHSA-9f46-5r25-5wfm
+
 ## 1.4.0 - 2020-11-26
 ### Correcting CHANGELOG.md
 - Correcting CHANGELOG.md
