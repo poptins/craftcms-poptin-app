@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## 1.6.0 - 2021-07-03
 ### Updating dependancies
+- Updating composer dependancies to fix -> https://github.com/advisories/GHSA-4574-qv3w-fcmg
+
+## 1.6.0 - 2021-07-03
+### Updating dependancies
 - Updating composer dependancies to fix -> https://github.com/advisories/GHSA-x2j7-6hxm-87p3
 
 ## 1.5.0 - 2021-06-30
