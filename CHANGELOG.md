@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## 1.6.0 - 2021-07-03
+## 1.8.0 - 2022-04-26
+### Updating dependancies
+- Updating composer dependancies to fix -> https://github.com/advisories/GHSA-frqg-7g38-6gcf
+
+## 1.7.0 - 2021-07-03
 ### Updating dependancies
 - Updating composer dependancies to fix -> https://github.com/advisories/GHSA-4574-qv3w-fcmg
 
