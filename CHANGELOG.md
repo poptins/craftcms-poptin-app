@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.11.0 - 2022-06-11
+### Updating dependancies
+- Updating composer dependancies to fix guzzle vulnurability -> https://github.com/guzzle/guzzle/security/advisories/GHSA-f2wf-25xc-69c9
+
 ## 1.10.0 - 2022-05-26
 ### Updating dependancies
 - Updating composer dependancies to fix guzzle vulnurability -> https://nvd.nist.gov/vuln/detail/CVE-2022-29248
