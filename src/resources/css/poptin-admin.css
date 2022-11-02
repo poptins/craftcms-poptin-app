@@ -32,6 +32,7 @@ a:focus {
 .poptinLogo img {
     vertical-align: middle;
     max-width: 397px;
+    display: inline;
 }
 
 .accountWrapper {
@@ -514,6 +515,7 @@ img.parrot {
     max-width: 150px;
     max-height: 150px;
     height: 150px;
+    display: inline;
 }
 
 .poptinLoggedBg {
@@ -521,7 +523,7 @@ img.parrot {
     width: 731px;
     height: 446px;
     margin: 0 auto 34px;
-    padding-top: 30px;
+    padding-top: 10px;
 }
 
 .poptinLogged .tinyborder {
@@ -738,7 +740,7 @@ a.pplogout:focus {
     background: #FFFFFF;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
     border-radius: 13px;
-    padding: 30px 10px 0px 10px;
+    padding: 10px 10px 0px 10px;
     min-height: 210px !important;
 }
 

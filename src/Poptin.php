@@ -14,11 +14,11 @@ class Poptin extends Plugin
 {
     public static $plugin;
 
-    public $schemaVersion = '1.0.0';
+    public string $schemaVersion = "1.0.0";
 
-    public $hasCpSettings = false;
+    public bool $hasCpSettings = false;
 
-    public $hasCpSection = true;
+    public bool $hasCpSection = true;
 
     public function init()
     {
@@ -47,6 +47,7 @@ class Poptin extends Plugin
                     $projectConfig->get('plugins.poptin.token') ?? $projectConfig->set('plugins.poptin.token', "");
                     $projectConfig->get('plugins.poptin.login_url') ?? $projectConfig->set('plugins.poptin.login_url', "");
                     $projectConfig->get('plugins.poptin.poptin_url') ?? $projectConfig->set('plugins.poptin.poptin_url', "https://app.popt.in");
+                    $projectConfig->get('plugins.poptin.pixel_url') ?? $projectConfig->set('plugins.poptin.pixel_url', "https://cdn.popt.in");
                 }
             }
         );
@@ -71,7 +72,7 @@ class Poptin extends Plugin
             Craft::$app->getView()->registerAssetBundle('poptin\poptin\PoptinPublicBundle');
         }
     }
-    public function getCpNavItem()
+    public function getCpNavItem(): ?array
     {
         $item = parent::getCpNavItem();
         $item['icon'] = '@poptin/poptin/icon.svg';

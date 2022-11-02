@@ -8,13 +8,13 @@ use craft\web\Request;
 
 class DefaultController extends Controller
 {
-    protected $allowAnonymous = ['config'];
+    protected array|int|bool $allowAnonymous = ['config'];
 
     public function actionConfig()
     {
         $this->requireLogin();
 
-        Craft::$app->templateCaches->deleteAllCaches();
+        Craft::$app->elements->invalidateAllCaches();
 
         $params = (new Request())->getBodyParams();
 

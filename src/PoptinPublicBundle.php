@@ -11,11 +11,11 @@ class PoptinPublicBundle extends AssetBundle
         $this->sourcePath = '@poptin/poptin/resources';
 
         $client_id = \Craft::$app->projectConfig->get('plugins.poptin.client_id');
-        $poptin_url = \Craft::$app->projectConfig->get('plugins.poptin.poptin_url');
+        $pixel_url = \Craft::$app->projectConfig->get('plugins.poptin.pixel_url');
 
         if($client_id) {
             $this->js = [
-                "{$poptin_url}/pixel.js?id={$client_id}",
+                "{$pixel_url}/pixel.js?id={$client_id}",
             ];
         }else {
             $this->js = [

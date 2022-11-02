@@ -2,7 +2,7 @@
     "name": "poptin/poptin",
     "description": "Create advanced website popups and forms, and improve your website's conversion rate within a few minutes.",
     "type": "craft-plugin",
-    "version": "1.11.0",
+    "version": "2.0.0",
     "keywords": [
         "craft",
         "cms",
@@ -20,12 +20,10 @@
         }
     ],
     "require": {
-        "craftcms/cms": "^3.6.7"
+        "craftcms/cms": "^4.0"
     },
     "require-dev": {
-      "craftcms/cms": "^3.6.7",
-      "codeception/codeception": "^4.1",
-      "vlucas/phpdotenv": "^3.0"
+        "craftcms/rector": "dev-main"
     },
     "autoload": {
         "psr-4": {
@@ -40,5 +38,7 @@
         "documentationUrl": "https://github.com/poptins/craftcms-poptin-app/blob/master/README.md",
         "changelogUrl": "https://github.com/poptins/craftcms-poptin-app/blob/master/CHANGELOG.md",
         "class": "poptin\\poptin\\Poptin"
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
