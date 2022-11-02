@@ -1,4 +1,4 @@
-# Poptin plugin for Craft CMS 3.x
+# Poptin plugin for Craft CMS 4.x
 
 Create advanced website popups and forms, and improve your website's conversion rate within a few minutes.
 
@@ -6,7 +6,7 @@ Create advanced website popups and forms, and improve your website's conversion 
 
 ## Requirements
 
-This plugin requires Craft CMS 3.0.0-beta.23 or later.
+This plugin requires Craft CMS 4.0.0-alpha or later.
 
 ## Installation
 

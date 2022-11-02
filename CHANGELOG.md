@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 2.0.1 - 2022-11-02
+### Craft4 support
+- Updating README.md
+
 ## 2.0.0 - 2022-11-02
 ### Craft4 support
 - Updating the plugin to support Craft4
