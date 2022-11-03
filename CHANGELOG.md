@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.12.0 - 2022-11-03
+### Fixing CDN URL
+- Fixing CDN URL to pixel file, so it points to CDN instead of app server, for better performance
+
 ## 1.11.0 - 2022-06-11
 ### Updating dependancies
 - Updating composer dependancies to fix guzzle vulnurability -> https://github.com/guzzle/guzzle/security/advisories/GHSA-f2wf-25xc-69c9

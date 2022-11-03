@@ -47,6 +47,7 @@ class Poptin extends Plugin
                     $projectConfig->get('plugins.poptin.token') ?? $projectConfig->set('plugins.poptin.token', "");
                     $projectConfig->get('plugins.poptin.login_url') ?? $projectConfig->set('plugins.poptin.login_url', "");
                     $projectConfig->get('plugins.poptin.poptin_url') ?? $projectConfig->set('plugins.poptin.poptin_url', "https://app.popt.in");
+                    $projectConfig->get('plugins.poptin.pixel_url') ?? $projectConfig->set('plugins.poptin.pixel_url', "https://cdn.popt.in");
                 }
             }
         );
