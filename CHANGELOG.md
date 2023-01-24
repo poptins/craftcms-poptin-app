@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.13.0 - 2023-01-24
+### Upgrading composer dependancies
+- Upgrading composer dependancies to fix security vulnerabilities pointed by Github bot
+
 ## 1.12.0 - 2022-11-03
 ### Fixing CDN URL
 - Fixing CDN URL to pixel file, so it points to CDN instead of app server, for better performance
