@@ -4,9 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## 2.0.2 - 2023-08-22
+## 2.0.3 - 2023-08-22
 ### Craft4 support
 - Updating composer dependancies to fix Github advisory security issues
+
+## 2.0.2 - 2023-01-24
+### Upgrading composer dependancies
+- Upgrading composer dependancies to fix vulnerabilities pointed out by Github security bot
 
 ## 2.0.1 - 2022-11-02
 ### Craft4 support
