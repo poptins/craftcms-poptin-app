@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.15.0 - 2023-08-22
+### New version release
+- Upgrading composer dependancies to fix security vulnerabilities pointed by Github bot 
+
 ## 1.15.0 - 2023-03-22
 ### New version release
 - Releasing new version, 1.14.0 is not showing up on the marketplace correctly
