@@ -2,7 +2,7 @@
     "name": "poptin/poptin",
     "description": "Create advanced website popups and forms, and improve your website's conversion rate within a few minutes.",
     "type": "craft-plugin",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "keywords": [
         "craft",
         "cms",
@@ -40,5 +40,11 @@
         "class": "poptin\\poptin\\Poptin"
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true,
+            "craftcms/plugin-installer": true
+        }
+    }
 }
