@@ -2,7 +2,7 @@
     "name": "poptin/poptin",
     "description": "Create advanced website popups and forms, and improve your website's conversion rate within a few minutes.",
     "type": "craft-plugin",
-    "version": "2.0.5",
+    "version": "2.0.6",
     "keywords": [
         "craft",
         "cms",
